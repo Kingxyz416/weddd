@@ -84,18 +84,6 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .ev .v{display:block;margin-top:1rem;font-size:.6rem;color:var(--emerald)}
 
 
-/* ---------- PHOTO SHARE ---------- */
-.share{margin:4.5rem auto 0;width:min(440px,100%);border:1px solid var(--gold-soft);outline:1px solid var(--gold-soft);outline-offset:-8px;background:var(--card);padding:2.4rem 1.6rem}
-.share h3{font-family:var(--display);font-weight:400;font-size:1.9rem;margin:.6rem 0 .5rem}
-.share p{font-size:1.05rem;line-height:1.7;color:oklch(.32 .03 150)}
-.share form{display:flex;flex-direction:column;gap:.9rem;margin-top:1.4rem}
-.share input[type=text]{font:inherit;font-size:1.05rem;padding:.8rem 1rem;border:1px solid var(--gold-soft);background:#fffdf8;color:var(--fg);text-align:center}
-.share input[type=file]{font:inherit;font-size:.95rem;padding:.7rem;border:1px dashed var(--gold);background:#fffdf8;width:100%}
-.share .btn{color:var(--emerald-deep);align-self:center}
-.share .btn:hover{color:var(--emerald-deep)}
-.share .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;background:transparent}
-.share #upst{min-height:1.4em;margin-top:.8rem;font-size:.95rem;color:var(--emerald)}
-.hp{position:absolute;left:-9999px;opacity:0}
 /* ---------- COUNTDOWN ---------- */
 .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.4rem);margin:3rem auto 2rem;max-width:600px}
 .cd div{border:1px solid oklch(.68 .1 78 /.45);padding:clamp(1.2rem,4vw,2.2rem) .3rem;background:oklch(.3 .05 168 /.4)}
@@ -147,7 +135,6 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .js .ev.reveal.is-visible{transform:none;outline-offset:-8px}
 .js .cd div.reveal{transform:perspective(700px) rotateX(-75deg) translateY(30px);transform-origin:50% 100%}
 .js .cd div.reveal.is-visible{transform:none}
-.js .share.reveal{transform:translateY(60px) scale(.95)}.js .share.reveal.is-visible{transform:none}
 /* split headline: words rise out of a mask */
 .js h2.split .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .14em;margin-bottom:-.14em}
 .js h2.split .w>span{display:inline-block;transform:translateY(115%) rotate(4deg);transition:transform 1.3s var(--ease);transition-delay:calc(var(--k)*.1s + .15s)}
@@ -238,24 +225,6 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
  </div>
 </section>
 
-<!-- 4 · SHARE A PHOTO -->
-<section class="ivory" id="share" style="padding-top:0">
- <div class="wrap">
-  <div class="share reveal">
-   <span class="cap">Share a memory</span>
-   <h3>Got a photo of us?</h3>
-   <p>Send your favourite picture of Riza or Yasir — it goes straight to the family album.</p>
-   <form id="up" autocomplete="off">
-    <input type="text" name="nm" placeholder="Your name (optional)" maxlength="60" aria-label="Your name">
-    <input type="file" id="upfile" accept="image/*" aria-label="Choose a photo">
-    <input type="text" name="hp" class="hp" tabindex="-1" aria-hidden="true">
-    <button class="btn" id="upbtn" type="submit">Send photo</button>
-   </form>
-   <p id="upst" role="status"></p>
-  </div>
- </div>
-</section>
-
 <!-- 5 · COUNTDOWN -->
 <section class="dark" id="countdown">
  <div class="wrap">
@@ -311,20 +280,6 @@ function tick(){let r=Math.max(0,T-Date.now());const s=Math.floor(r/1e3);
  $('d').textContent=p(Math.floor(s/86400));$('h').textContent=p(Math.floor(s%86400/3600));$('m').textContent=p(Math.floor(s%3600/60));$('s').textContent=p(s%60);
  if(!r)$('cdnote').textContent='Alhamdulillah — the day is here.'}
 tick();setInterval(tick,1000)})();
-
-// Photo upload → Google Drive via Apps Script web app. Paste the web app URL below.
-const DRIVE_URL='';
-(()=>{const f=document.getElementById('up'),inp=document.getElementById('upfile'),st=document.getElementById('upst'),btn=document.getElementById('upbtn');
-if(!DRIVE_URL){btn.disabled=true;st.textContent='Photo sharing opens soon.'}
-function shrink(file){return new Promise((res,rej)=>{const img=new Image(),u=URL.createObjectURL(file);img.onload=()=>{const k=Math.min(1,1600/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.82).split(',')[1])};img.onerror=()=>rej();img.src=u})}
-f.addEventListener('submit',async e=>{e.preventDefault();const file=inp.files[0];
- if(!file||!file.type.startsWith('image/')){st.textContent='Please choose a photo first.';return}
- btn.disabled=true;st.textContent='Sending…';
- try{const data=await shrink(file);
-  const r=await fetch(DRIVE_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name:f.nm.value.slice(0,60),data,hp:f.hp.value})});
-  const j=await r.json();if(!j.ok)throw 0;st.textContent='Thank you! Your photo reached us.';f.reset()}
- catch{st.textContent='Could not send that one. Please try again.'}
- btn.disabled=!DRIVE_URL})})();
 
 // background music: starts on the guest's first tap (browsers block true autoplay); button toggles it
 (()=>{const a=document.getElementById('bgm'),b=document.getElementById('music');let paused=false,fade;
