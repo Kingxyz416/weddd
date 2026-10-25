@@ -54,7 +54,6 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .btns{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;animation:rise 1.4s var(--ease) 3.4s both}
 .btn{font-family:var(--caps);font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ivory);background:transparent;border:1px solid var(--gold);padding:.95rem 1.5rem;cursor:pointer;transition:background .5s,color .5s,transform .5s var(--ease);text-decoration:none}
 .btn:hover{background:var(--gold);color:var(--emerald-deep);transform:translateY(-2px)}
-.btn.solid{background:oklch(.68 .1 78 /.14)}
 .fl{position:absolute;bottom:0;width:clamp(70px,13vw,120px);aspect-ratio:120/300;z-index:1;animation:floaty 7s ease-in-out infinite;transform-origin:50% 100%}
 .fl.l{left:-17%}.fl.r{right:-17%;animation-delay:-3s;transform:scaleX(-1)}
 .fl.r{animation-name:floaty2}
@@ -213,7 +212,7 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
    <svg class="fl l" aria-hidden="true"><use href="#flower"/></svg>
    <svg class="fl r" aria-hidden="true"><use href="#flower"/></svg>
   </div>
-  <div class="btns"><button class="btn solid" id="rsvp" type="button">RSVP</button><button class="btn" type="button" onclick="window.print()">Print invitation</button></div>
+  <div class="btns"><button class="btn" type="button" onclick="window.print()">Print invitation</button></div>
  </div>
  <span class="scrollcue" aria-hidden="true"></span>
 </section>
@@ -331,10 +330,5 @@ tick();setInterval(tick,1000)})();
  const g=document.getElementById('gate');if(g){document.getElementById('gbtn').addEventListener('click',()=>{document.documentElement.classList.remove('gated');g.classList.add('out');if(a.paused&&!paused)play();setTimeout(()=>g.remove(),1500)})}
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&!a.paused){a.pause();set(false)}else if(!document.hidden&&!paused&&a.paused&&a.currentTime>0)play()})})();
 
-// RSVP → WhatsApp message (put the host's number in WA_NUMBER, digits only with country code, e.g. 919876543210)
-const WA_NUMBER='';
-document.getElementById('rsvp').addEventListener('click',()=>{
- const t=encodeURIComponent('Assalamu Alaikum! I would like to RSVP for the Nikkah of Riza & Yasir on 21 November 2026. Number of guests: ');
- window.open(`https://wa.me/${WA_NUMBER}?text=${t}`,'_blank','noopener')});
 </script>
 </body></html>
