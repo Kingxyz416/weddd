@@ -5,11 +5,11 @@
 <title>Riza Abid & Yasir Husain · The Nikkah · 21 November 2026</title>
 <meta name="description" content="With the blessings of Allah — you are invited to the Nikkah of Riza Abid & Yasir Husain, Saturday 21 November 2026.">
 <meta property="og:title" content="The Nikkah of Riza Abid & Yasir Husain">
-<meta property="og:description" content="Saturday · 21 November 2026 · After Asr prayer & dinner at 8 PM">
+<meta property="og:description" content="Saturday · 21 November 2026 · Nikkah after Asr at Umar Mosque · Ruksati 5:00 PM · Dinner 6:30 PM">
 <meta name="theme-color" content="#0b3a2a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Pinyon+Script&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js','gated')</script>
 <style>
 :root{
  --ivory:oklch(.975 .014 85);--gold:oklch(.68 .1 78);--gold-soft:oklch(.84 .06 82);--emerald:oklch(.42 .07 165);--emerald-deep:oklch(.27 .05 168);--rose:oklch(.72 .06 15);
@@ -84,6 +84,23 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .ev .v{display:block;margin-top:1rem;font-size:.6rem;color:var(--emerald)}
 
 
+/* ---------- MAP ---------- */
+.mapbox{margin-top:2.4rem;padding:10px;background:var(--card);border:1px solid var(--gold-soft);box-shadow:0 0 0 7px var(--ivory),0 0 0 8px var(--gold-soft)}
+.mapbox iframe{display:block;width:100%;height:clamp(280px,52vw,380px);border:0;filter:sepia(.2) saturate(.85) contrast(.97)}
+.mapbtns{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-top:2.2rem}
+.btn.dk{display:inline-block;color:var(--emerald-deep);border-color:var(--gold)}
+/* ---------- OPENING GATE (lets the music start with sound) ---------- */
+html.gated{overflow:hidden}
+html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
+#gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;color:var(--ivory);padding:2rem;background:radial-gradient(ellipse 70% 55% at 50% 42%,oklch(.36 .06 165),transparent 75%),var(--pat-g),linear-gradient(180deg,oklch(.22 .05 168),oklch(.28 .06 165) 50%,oklch(.2 .05 168));transition:opacity 1.3s ease,visibility 1.3s}
+#gate.out{opacity:0;visibility:hidden;pointer-events:none}
+#gate .g>*{animation:rise 1.4s var(--ease) both}
+#gate .gk{width:54px;color:var(--gold);margin:0 auto 1.4rem;animation-name:rise,spin;animation-duration:1.4s,40s;animation-iteration-count:1,infinite;animation-timing-function:var(--ease),linear}
+#gate .gb{font-family:var(--ar);font-size:1.5rem;color:var(--gold-soft);animation-delay:.2s}
+#gate .gn{font-family:var(--display);font-weight:300;font-size:clamp(2.4rem,9vw,3.6rem);margin:.8rem 0 .4rem;animation-delay:.4s}
+#gate .gc{margin-bottom:2rem;animation-delay:.6s}
+#gate .btn{animation-delay:.8s}
+#gate .gs{margin-top:1.6rem;font-size:.58rem;opacity:.75;animation-delay:1s}
 /* ---------- COUNTDOWN ---------- */
 .cd{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.4rem);margin:3rem auto 2rem;max-width:600px}
 .cd div{border:1px solid oklch(.68 .1 78 /.45);padding:clamp(1.2rem,4vw,2.2rem) .3rem;background:oklch(.3 .05 168 /.4)}
@@ -154,6 +171,14 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 <body>
 <div id="bar" aria-hidden="true"></div>
 <audio id="bgm" src="music.mp3" loop preload="none"></audio>
+<div id="gate" class="no-print" role="dialog" aria-label="Open the invitation"><div class="g">
+ <svg class="gk" viewBox="0 0 40 40" aria-hidden="true"><use href="#knot"/></svg>
+ <div class="gb" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+ <div class="gn">Riza &amp; Yasir</div>
+ <p class="cap gc">You are invited</p>
+ <button class="btn" id="gbtn" type="button">Open invitation</button>
+ <p class="cap gs">♪ Best with sound on</p>
+</div></div>
 <button id="music" class="no-print mute" type="button" aria-label="Play music" title="Music"><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></button>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -218,10 +243,23 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
   <div class="hair reveal" style="--i:2"></div>
   <div class="tl">
    <svg class="node reveal" viewBox="0 0 40 40" aria-hidden="true"><use href="#knot"/></svg>
-   <article class="ev reveal"><span class="cap">After Asr prayer</span><h3>Nikkah</h3><p>The marriage contract, witnessed in the presence of family and loved ones.</p><span class="cap v">At the Bride’s House</span></article>
+   <article class="ev reveal"><span class="cap">After Asr prayer</span><h3>Nikkah</h3><p>The marriage contract, witnessed in the presence of family and loved ones.</p><span class="cap v">At Umar Mosque</span></article>
    <svg class="node reveal" viewBox="0 0 40 40" aria-hidden="true"><use href="#knot"/></svg>
-   <article class="ev reveal"><span class="cap">8:00 PM</span><h3>Dinner</h3><p>Please join us to share a meal and celebrate the blessed occasion.</p><span class="cap v">At the Bride’s House</span></article>
+   <article class="ev reveal"><span class="cap">5:00 PM</span><h3>Ruksati</h3><p>A blessed farewell as the bride leaves for her new home, carrying everyone’s duas.</p></article>
+   <svg class="node reveal" viewBox="0 0 40 40" aria-hidden="true"><use href="#knot"/></svg>
+   <article class="ev reveal"><span class="cap">Starts 6:30 PM</span><h3>Dinner</h3><p>Please join us to share a meal and celebrate the blessed occasion.</p><span class="cap v">At the Bride’s House</span></article>
   </div>
+ </div>
+</section>
+
+<!-- MAP -->
+<section class="ivory" id="map" style="padding-top:0">
+ <div class="wrap">
+  <p class="cap reveal">Find your way</p>
+  <h2 class="reveal" style="--i:1;margin-top:1.2rem">Location</h2>
+  <div class="hair reveal" style="--i:2"></div>
+  <div class="mapbox reveal" style="--i:3"><iframe title="Map location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=29.1435278,78.2715&z=15&output=embed"></iframe></div>
+  <div class="mapbtns reveal" style="--i:4"><a class="btn dk" href="https://maps.app.goo.gl/ME4uwrKW5ws1N8Qs8" target="_blank" rel="noopener">Open in Google Maps</a><a class="btn dk" href="https://www.google.com/maps/dir/?api=1&amp;destination=29.1435278,78.2715" target="_blank" rel="noopener">Get directions</a></div>
  </div>
 </section>
 
@@ -254,7 +292,7 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 </section>
 </main>
 
-<div class="print-only"><span class="cap">With the blessings of Allah</span><h1>Riza Abid &amp; Yasir Husain</h1><p>D/O Suhail Abid · S/O Manzar Husain</p><p class="cap" style="margin-top:1rem">Saturday · 21 November 2026</p><p>Nikkah after Asr prayer · Dinner at 8:00 PM</p><p>Venue: the Bride’s House</p></div>
+<div class="print-only"><span class="cap">With the blessings of Allah</span><h1>Riza Abid &amp; Yasir Husain</h1><p>D/O Suhail Abid · S/O Manzar Husain</p><p class="cap" style="margin-top:1rem">Saturday · 21 November 2026</p><p>Nikkah after Asr prayer · Umar Mosque</p><p>Ruksati 5:00 PM · Dinner 6:30 PM</p></div>
 
 <script>
 // falling petals + gold dust (CSS-animated, generated once)
@@ -290,6 +328,7 @@ tick();setInterval(tick,1000)})();
  b.addEventListener('click',e=>{e.stopPropagation();if(a.paused){paused=false;play()}else{paused=true;stop()}});
  const first=e=>{if(e.target.closest&&e.target.closest('#music'))return;if(a.paused&&!paused)play();['pointerdown','keydown','touchend'].forEach(t=>removeEventListener(t,first))};
  ['pointerdown','keydown','touchend'].forEach(t=>addEventListener(t,first,{passive:true}));
+ const g=document.getElementById('gate');if(g){document.getElementById('gbtn').addEventListener('click',()=>{document.documentElement.classList.remove('gated');g.classList.add('out');if(a.paused&&!paused)play();setTimeout(()=>g.remove(),1500)})}
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&!a.paused){a.pause();set(false)}else if(!document.hidden&&!paused&&a.paused&&a.currentTime>0)play()})})();
 
 // RSVP → WhatsApp message (put the host's number in WA_NUMBER, digits only with country code, e.g. 919876543210)
