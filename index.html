@@ -165,7 +165,30 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
 /* ---------- SCROLL-DRIVEN (where supported) — scrubs with your scroll ---------- */
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal,.js h2.split .w>span{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}#dust{display:none}.arch path.l{stroke-dashoffset:0}}
 @media (max-width:520px){.pair{grid-template-columns:1fr;gap:.8rem}.star{margin:0 auto}.fl.l{left:-9%}.fl.r{right:-9%}.arch-text{inset:24% 10% 14%}}
-@media print{@page{size:A5 portrait;margin:0}body{background:#fff}.no-print{display:none!important}.print-only{display:flex!important;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100vh;padding:14mm;border:1px solid var(--gold);gap:.5rem;font-family:var(--display);color:#1d2b24}.print-only h1{font-weight:400;font-size:2.4rem}.print-only .cap{font-size:.6rem}}
+@media print{
+@page{size:A5 portrait;margin:0}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;height:210mm;background:oklch(.24 .05 168)}
+.no-print,#bar,#music,#gate{display:none!important}
+.print-only{display:block!important}
+.pg{position:relative;width:148mm;height:210mm;overflow:hidden;break-inside:avoid;page-break-after:avoid;color:var(--ivory);
+ background:radial-gradient(ellipse 70% 55% at 50% 45%,oklch(.36 .06 165),transparent 75%),var(--pat-g),linear-gradient(180deg,oklch(.24 .05 168),oklch(.3 .06 165) 50%,oklch(.22 .05 168))}
+.pa{position:absolute;left:50%;top:13mm;width:96mm;height:150mm;margin-left:-48mm}
+.pl{position:absolute;inset:0;width:100%;height:100%}
+.pl path{fill:none;stroke:var(--gold)}.pl .p1{stroke-width:2.2}.pl .p2{stroke-width:1.4;stroke-opacity:.7}.pl .p3{stroke-width:1;stroke-opacity:.45}
+.pl .pf{fill:var(--gold);stroke:none}.pl .pn{fill:oklch(.5 .07 150 /.6);stroke-width:1.2}
+.pt{position:absolute;inset:23% 12% 12%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.pbis{font-family:var(--ar);font-size:15pt;color:var(--gold-soft);line-height:1.3}
+.pof{font-family:var(--caps);font-size:5.5pt;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin:3mm 0 1mm;padding-left:.5em}
+.pnm{font-family:var(--display);font-weight:300;font-size:30pt;line-height:1.12;color:var(--ivory)}
+.pamp{font-family:var(--script);font-size:20pt;color:var(--gold);line-height:1.4}
+.pdt{margin-top:6mm;padding-top:5mm;position:relative;font-family:var(--caps);font-size:8pt;letter-spacing:.4em;color:var(--gold-soft);padding-left:.4em}
+.pdt::before{content:"";position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.pfl{position:absolute;bottom:32mm;width:15mm;height:38mm}
+.pl1{left:8mm}.pr1{right:8mm;transform:scaleX(-1)}
+.pd{position:absolute;left:0;right:0;bottom:11mm;text-align:center;font-family:var(--display);font-size:9pt;line-height:1.7;color:oklch(.9 .02 85)}
+.pd span{font-family:var(--caps);font-size:6.5pt;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-soft)}
+}
 </style></head>
 <body>
 <div id="bar" aria-hidden="true"></div>
@@ -291,7 +314,21 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
 </section>
 </main>
 
-<div class="print-only"><span class="cap">With the blessings of Allah</span><h1>Riza Abid &amp; Yasir Husain</h1><p>D/O Suhail Abid · S/O Manzar Husain</p><p class="cap" style="margin-top:1rem">Saturday · 21 November 2026</p><p>Nikkah after Asr prayer · Umar Mosque</p><p>Ruksati 5:00 PM · Dinner 6:30 PM</p></div>
+<div class="print-only" aria-hidden="true"><div class="pg">
+ <div class="pa">
+  <svg class="pl" viewBox="0 0 480 780" preserveAspectRatio="none"><path class="p1" d="M10 780V320C10 240 130 140 240 44C350 140 470 240 470 320V780"/><path class="p2" d="M36 780V325C36 255 140 165 240 72C340 165 444 255 444 325V780"/><path class="p3" d="M66 780V335C66 275 150 195 240 108C330 195 414 275 414 335V780"/><path class="pf" d="M240 8l9 17-9 17-9-17z"/><path class="p2" d="M240 124v14M240 168v8"/><path class="pn" d="M228 150l6-12h12l6 12-6 18h-12z"/></svg>
+  <div class="pt">
+   <div class="pbis" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+   <div class="pof">The Nikkah of</div>
+   <div class="pnm">Riza Abid</div>
+   <div class="pamp">&amp;</div>
+   <div class="pnm">Yasir Husain</div>
+   <div class="pdt">21 · XI · 2026</div>
+  </div>
+ </div>
+ <svg class="pfl pl1"><use href="#flower"/></svg><svg class="pfl pr1"><use href="#flower"/></svg>
+ <div class="pd"><span>Saturday · 21 November 2026</span><br>Nikkah after Asr prayer · Umar Mosque<br>Ruksati 5:00 PM · Dinner 6:30 PM</div>
+</div></div>
 
 <script>
 // falling petals + gold dust (CSS-animated, generated once)
