@@ -12,8 +12,8 @@
 <script>document.documentElement.classList.add('js','gated')</script>
 <style>
 :root{
- --ivory:#fbf6ec;--gold:#ba904c;--gold-soft:#dec79f;--emerald:#205943;--emerald-deep:#052e22;--rose:#c79698;
- --fg:#13261e;--muted:#4a5747;--card:#fdfaf3;
+ --ivory:oklch(.975 .014 85);--gold:oklch(.68 .1 78);--gold-soft:oklch(.84 .06 82);--emerald:oklch(.42 .07 165);--emerald-deep:oklch(.27 .05 168);--rose:oklch(.72 .06 15);
+ --fg:oklch(.25 .03 165);--muted:oklch(.44 .03 140);--card:oklch(.985 .01 85);
  --display:"Cormorant Garamond","Times New Roman",serif;--script:"Pinyon Script",cursive;--body:"EB Garamond",Georgia,serif;--caps:"Cinzel",serif;--ar:"Amiri",serif;
  --ease:cubic-bezier(.2,.7,.2,1);
  --pat-g:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='none' stroke='%23c9a24b' stroke-opacity='.13'%3E%3Crect x='28' y='28' width='44' height='44'/%3E%3Crect x='28' y='28' width='44' height='44' transform='rotate(45 50 50)'/%3E%3Ccircle cx='50' cy='50' r='11'/%3E%3Cpath d='M0 0l14 14M100 0L86 14M0 100l14-14M100 100L86 86'/%3E%3C/svg%3E");
@@ -33,10 +33,10 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .dark{background:var(--emerald-deep) var(--pat-g);color:var(--ivory);padding:clamp(5rem,12vw,8rem) 0}
 
 /* ---------- HERO ---------- */
-.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:3rem 0 2rem;color:var(--ivory);
- background:radial-gradient(ellipse 70% 60% at 50% 45%,#184735,transparent 75%),var(--pat-g),linear-gradient(180deg,#00271b,#043726 50%,#002216)}
+.hero{min-height:100svh;display:grid;place-items:center;padding:3rem 0 2rem;color:var(--ivory);
+ background:radial-gradient(ellipse 70% 60% at 50% 45%,oklch(.36 .06 165),transparent 75%),var(--pat-g),linear-gradient(180deg,oklch(.24 .05 168),oklch(.3 .06 165) 50%,oklch(.22 .05 168))}
 .hero-in{display:flex;flex-direction:column;align-items:center;gap:1.8rem;position:relative;z-index:2}
-.arch{position:relative;width:min(480px,86vw);aspect-ratio:480/780;max-height:70vh;max-height:70svh;filter:drop-shadow(0 0 40px rgba(186,144,76,.12))}
+.arch{position:relative;width:min(480px,86vw);aspect-ratio:480/780;max-height:78svh;filter:drop-shadow(0 0 40px oklch(.68 .1 78 /.12))}
 .arch svg.lines{position:absolute;inset:0;width:100%;height:100%}
 .arch path.l{fill:none;stroke:var(--gold);stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s var(--ease) both}
 .arch path.l1{stroke-width:2}.arch path.l2{stroke-width:1.3;stroke-opacity:.7;animation-delay:.3s}.arch path.l3{stroke-width:1;stroke-opacity:.4;animation-delay:.6s}
@@ -62,15 +62,8 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 #dust i{position:absolute;top:-6vh;width:var(--s);height:calc(var(--s)*.6);border-radius:100% 0 100% 0;background:var(--c);opacity:0;animation:drift var(--t) linear var(--dl) infinite}
 #dust i.dot{border-radius:50%;height:var(--s);animation-name:drift,twinkle}
 
-/* scroll-down cue on page 1 */
-.cue{display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--gold);text-decoration:none;font-family:var(--caps);font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;padding:.3rem .6rem;animation:rise 1.4s var(--ease) 4.2s both}
-.cue span{padding-left:.42em;animation:glow 2.2s ease-in-out 5.6s infinite}
-.cue svg{width:24px;height:36px;animation:bob 1.7s ease-in-out 5.6s infinite}
-@keyframes bob{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(9px);opacity:1}}
-@keyframes glow{0%,100%{opacity:.6}50%{opacity:1;text-shadow:0 0 14px rgba(186,144,76,.7)}}
-.hero,#gate{background-color:#123a2e}
 /* ---------- FAMILIES ---------- */
-.fam p.lead{font-size:clamp(1.05rem,2.8vw,1.35rem);line-height:1.9;color:#28372b;max-width:34em;margin:0 auto}
+.fam p.lead{font-size:clamp(1.05rem,2.8vw,1.35rem);line-height:1.9;color:oklch(.32 .03 150);max-width:34em;margin:0 auto}
 .pair{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.2rem;margin:3.4rem 0}
 .pair h3{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,5vw,2.5rem)}
 .pair small{display:block;margin-top:.6rem;font-family:var(--caps);font-size:.66rem;letter-spacing:.3em;color:var(--emerald)}
@@ -79,16 +72,15 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 .quote+.cap{display:block;margin-top:1rem;font-size:.62rem;opacity:.85}
 
 /* ---------- ORDER OF THE DAY ---------- */
-.cap.dateline{font-size:clamp(1rem,4.2vw,1.55rem);font-weight:700;letter-spacing:.24em;color:#8c5500;text-wrap:balance;line-height:1.5}
+.cap.dateline{font-size:clamp(1rem,4.2vw,1.55rem);font-weight:700;letter-spacing:.24em;color:oklch(.5 .12 72);text-wrap:balance;line-height:1.5}
 .tl{position:relative;margin:3.4rem auto 0;width:min(580px,100%);display:flex;flex-direction:column;align-items:center;gap:0;padding-bottom:1rem}
 .tl::before,.tl::after{content:"";position:absolute;left:50%;top:20px;bottom:0;width:1px;background:var(--gold-soft);opacity:.55}
 .tl::after{opacity:1;background:var(--gold);transform-origin:top;transform:scaleY(var(--tlp,1))}
 .node{width:34px;color:var(--gold);background:var(--ivory);position:relative;z-index:2;padding:2px 0}
 .ev{position:relative;z-index:2;width:100%;background:var(--card);border:1px solid var(--gold-soft);outline:1px solid var(--gold-soft);outline-offset:-8px;padding:2.6rem 2rem;margin:1.6rem 0 2.2rem}
 .ev h3{font-family:var(--display);font-weight:400;font-size:2.2rem;margin:.5rem 0 .9rem}
-.ev p{font-size:1.1rem;line-height:1.75;color:#28372b}
-.ev>.cap:first-child{font-size:clamp(.95rem,3.8vw,1.25rem);font-weight:700;letter-spacing:.3em;color:#8c5500;padding-left:.3em}
-.ev .v{display:block;margin-top:1rem;font-size:.78rem;font-weight:700;letter-spacing:.3em;color:var(--emerald)}
+.ev p{font-size:1.1rem;line-height:1.75;color:oklch(.32 .03 150)}
+.ev .v{display:block;margin-top:1rem;font-size:.6rem;color:var(--emerald)}
 
 
 /* ---------- MAP ---------- */
@@ -99,7 +91,7 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.6rem)
 /* ---------- OPENING GATE (lets the music start with sound) ---------- */
 html.gated{overflow:hidden}
 html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
-#gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;color:var(--ivory);padding:2rem;background:radial-gradient(ellipse 70% 55% at 50% 42%,#184735,transparent 75%),var(--pat-g),linear-gradient(180deg,#002216,#003221 50%,#001d12);transition:opacity 1.3s ease,visibility 1.3s}
+#gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;color:var(--ivory);padding:2rem;background:radial-gradient(ellipse 70% 55% at 50% 42%,oklch(.36 .06 165),transparent 75%),var(--pat-g),linear-gradient(180deg,oklch(.22 .05 168),oklch(.28 .06 165) 50%,oklch(.2 .05 168));transition:opacity 1.3s ease,visibility 1.3s}
 #gate.out{opacity:0;visibility:hidden;pointer-events:none}
 #gate .g>*{animation:rise 1.4s var(--ease) both}
 #gate .gk{width:54px;color:var(--gold);margin:0 auto 1.4rem;animation-name:rise,spin;animation-duration:1.4s,40s;animation-iteration-count:1,infinite;animation-timing-function:var(--ease),linear}
@@ -109,22 +101,22 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
 #gate .btn{animation-delay:.8s}
 #gate .gs{margin-top:1.6rem;font-size:.58rem;opacity:.75;animation-delay:1s}
 /* ---------- COUNTDOWN ---------- */
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.4rem);margin:3rem auto 0;max-width:600px}
-.cd div{border:1px solid rgba(186,144,76,.45);padding:clamp(1.2rem,4vw,2.2rem) .3rem;background:rgba(14,54,41,.4)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.4rem);margin:3rem auto 2rem;max-width:600px}
+.cd div{border:1px solid oklch(.68 .1 78 /.45);padding:clamp(1.2rem,4vw,2.2rem) .3rem;background:oklch(.3 .05 168 /.4)}
 .cd b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2rem,7vw,3.4rem);color:var(--gold-soft);line-height:1;font-variant-numeric:oldstyle-nums}
 .cd span{display:block;margin-top:.8rem;font-family:var(--caps);font-size:clamp(.5rem,1.9vw,.72rem);letter-spacing:.25em;text-transform:uppercase}
-.note{font-size:.95rem;color:#d4cdbf}
+.note{font-size:.95rem;color:oklch(.85 .02 85)}
 
 /* ---------- BLESSING ---------- */
 .end .ar{font-family:var(--ar);font-size:clamp(1.5rem,5vw,2.3rem);color:var(--gold-soft);line-height:1.9}
-.end .tr{font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,3vw,1.4rem);color:#e4ddcf;margin:1.2rem auto 0;max-width:30em;line-height:1.7}
-.end p.th{font-size:1.2rem;line-height:1.8;margin:0 auto;max-width:34em;color:#ebe4d6}
+.end .tr{font-family:var(--display);font-style:italic;font-size:clamp(1.1rem,3vw,1.4rem);color:oklch(.9 .02 85);margin:1.2rem auto 0;max-width:30em;line-height:1.7}
+.end p.th{font-size:1.2rem;line-height:1.8;margin:0 auto;max-width:34em;color:oklch(.92 .02 85)}
 .sig{font-family:var(--script);font-size:clamp(2.6rem,9vw,4rem);color:var(--gold);margin:1.4rem 0 2.4rem}
 .end .fl{bottom:-10px}.end .fl.l{left:3%}.end .fl.r{right:3%}
 .print-only{display:none}
 
 /* ---------- MUSIC ---------- */
-#music{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:70;width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);background:rgba(5,46,34,.92);color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px);box-shadow:0 8px 24px -8px rgba(0,0,0,.5);transition:transform .4s var(--ease),background .4s}
+#music{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:70;width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);background:oklch(.27 .05 168 /.92);color:var(--gold-soft);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(6px);box-shadow:0 8px 24px -8px rgba(0,0,0,.5);transition:transform .4s var(--ease),background .4s}
 #music:hover{transform:scale(1.07)}#music svg{width:22px;height:22px}
 #music .off{display:none}#music.mute .on{display:none}#music.mute .off{display:block}
 #music::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--gold);opacity:0}
@@ -164,7 +156,7 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
 .js h2.split .w>span{display:inline-block;transform:translateY(115%) rotate(4deg);transition:transform 1.3s var(--ease);transition-delay:calc(var(--k)*.1s + .15s)}
 .js h2.split.is-visible .w>span{transform:none}
 /* scroll progress + hero parallax (driven by JS variables, works in every browser) */
-#bar{position:fixed;top:0;left:0;height:3px;width:100%;z-index:60;transform-origin:0 50%;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--gold),var(--gold-soft));box-shadow:0 0 12px rgba(186,144,76,.6);pointer-events:none}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;z-index:60;transform-origin:0 50%;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--gold),var(--gold-soft));box-shadow:0 0 12px oklch(.68 .1 78 /.6);pointer-events:none}
 .hero-in{translate:0 calc(var(--hp,0)*-80px);scale:calc(1 - var(--hp,0)*.05);opacity:calc(1 - var(--hp,0)*.95)}
 .hero .fl{translate:0 calc(var(--hp,0)*-130px)}
 .hero{background-position:0 0,0 calc(var(--hp,0)*-220px),0 0}
@@ -176,15 +168,15 @@ html.gated .hero,html.gated .hero *{animation-play-state:paused!important}
 @media print{
 @page{size:A5 portrait;margin:0}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;height:210mm;background:#00271b}
+html,body{margin:0;height:210mm;background:oklch(.24 .05 168)}
 .no-print,#bar,#music,#gate{display:none!important}
 .print-only{display:block!important}
 .pg{position:relative;width:148mm;height:210mm;overflow:hidden;break-inside:avoid;page-break-after:avoid;color:var(--ivory);
- background:radial-gradient(ellipse 70% 55% at 50% 45%,#184735,transparent 75%),var(--pat-g),linear-gradient(180deg,#00271b,#043726 50%,#002216)}
+ background:radial-gradient(ellipse 70% 55% at 50% 45%,oklch(.36 .06 165),transparent 75%),var(--pat-g),linear-gradient(180deg,oklch(.24 .05 168),oklch(.3 .06 165) 50%,oklch(.22 .05 168))}
 .pa{position:absolute;left:50%;top:13mm;width:96mm;height:150mm;margin-left:-48mm}
 .pl{position:absolute;inset:0;width:100%;height:100%}
 .pl path{fill:none;stroke:var(--gold)}.pl .p1{stroke-width:2.2}.pl .p2{stroke-width:1.4;stroke-opacity:.7}.pl .p3{stroke-width:1;stroke-opacity:.45}
-.pl .pf{fill:var(--gold);stroke:none}.pl .pn{fill:rgba(69,111,78,.6);stroke-width:1.2}
+.pl .pf{fill:var(--gold);stroke:none}.pl .pn{fill:oklch(.5 .07 150 /.6);stroke-width:1.2}
 .pt{position:absolute;inset:23% 12% 12%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .pbis{font-family:var(--ar);font-size:15pt;color:var(--gold-soft);line-height:1.3}
 .pof{font-family:var(--caps);font-size:5.5pt;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin:3mm 0 1mm;padding-left:.5em}
@@ -194,7 +186,7 @@ html,body{margin:0;height:210mm;background:#00271b}
 .pdt::before{content:"";position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .pfl{position:absolute;bottom:32mm;width:15mm;height:38mm}
 .pl1{left:8mm}.pr1{right:8mm;transform:scaleX(-1)}
-.pd{position:absolute;left:0;right:0;bottom:11mm;text-align:center;font-family:var(--display);font-size:9pt;line-height:1.7;color:#e4ddcf}
+.pd{position:absolute;left:0;right:0;bottom:11mm;text-align:center;font-family:var(--display);font-size:9pt;line-height:1.7;color:oklch(.9 .02 85)}
 .pd span{font-family:var(--caps);font-size:6.5pt;letter-spacing:.35em;text-transform:uppercase;color:var(--gold-soft)}
 }
 </style></head>
@@ -212,9 +204,9 @@ html,body{margin:0;height:210mm;background:#00271b}
 <button id="music" class="no-print mute" type="button" aria-label="Play music" title="Music"><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></button>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
- <symbol id="flower" viewBox="0 0 120 300"><path d="M60 62C66 130 54 210 60 300" stroke="#32604d" stroke-width="2" fill="none"/>
-  <path d="M60 210C30 200 18 175 14 160 42 164 58 188 60 210Z" fill="#0b3c2b" opacity=".85"/><path d="M60 170C92 160 104 136 108 120 78 124 62 148 60 170Z" fill="#0b3c2b" opacity=".85"/><path d="M60 250C34 244 22 226 18 212 44 214 58 232 60 250Z" fill="#0b3c2b" opacity=".8"/>
-  <g transform="translate(60 40)" fill="rgba(199,150,152,.72)" stroke="rgba(222,199,159,.5)" stroke-width=".8"><ellipse cy="-17" rx="12" ry="20"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(72)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(144)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(216)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(288)"/><circle r="8" fill="#ba904c" stroke="none"/></g></symbol>
+ <symbol id="flower" viewBox="0 0 120 300"><path d="M60 62C66 130 54 210 60 300" stroke="oklch(.45 .06 165)" stroke-width="2" fill="none"/>
+  <path d="M60 210C30 200 18 175 14 160 42 164 58 188 60 210Z" fill="oklch(.32 .06 165)" opacity=".85"/><path d="M60 170C92 160 104 136 108 120 78 124 62 148 60 170Z" fill="oklch(.32 .06 165)" opacity=".85"/><path d="M60 250C34 244 22 226 18 212 44 214 58 232 60 250Z" fill="oklch(.32 .06 165)" opacity=".8"/>
+  <g transform="translate(60 40)" fill="oklch(.72 .06 15 / .72)" stroke="oklch(.84 .06 82 / .5)" stroke-width=".8"><ellipse cy="-17" rx="12" ry="20"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(72)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(144)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(216)"/><ellipse cy="-17" rx="12" ry="20" transform="rotate(288)"/><circle r="8" fill="oklch(.68 .1 78)" stroke="none"/></g></symbol>
  <symbol id="knot" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.2"><rect x="9" y="9" width="22" height="22"/><rect x="9" y="9" width="22" height="22" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="6"/></g><circle cx="20" cy="20" r="2.4" fill="currentColor"/></symbol>
 </defs></svg>
 
@@ -230,7 +222,7 @@ html,body{margin:0;height:210mm;background:#00271b}
     <path class="l l2" pathLength="1" d="M36 780V325C36 255 140 165 240 72C340 165 444 255 444 325V780"/>
     <path class="l l3" pathLength="1" d="M66 780V335C66 275 150 195 240 108C330 195 414 275 414 335V780"/>
     <path class="fin" d="M240 8l9 17-9 17-9-17z"/>
-    <g class="lantern"><path d="M240 124v14" stroke="var(--gold)" stroke-width="1"/><path d="M228 150l6-12h12l6 12-6 18h-12z" fill="rgba(69,111,78,.6)" stroke="var(--gold)" stroke-width="1"/><path d="M240 168v8" stroke="var(--gold)"/></g>
+    <g class="lantern"><path d="M240 124v14" stroke="var(--gold)" stroke-width="1"/><path d="M228 150l6-12h12l6 12-6 18h-12z" fill="oklch(.5 .07 150 /.6)" stroke="var(--gold)" stroke-width="1"/><path d="M240 168v8" stroke="var(--gold)"/></g>
    </svg>
    <div class="arch-text">
     <div class="bis" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
@@ -244,9 +236,9 @@ html,body{margin:0;height:210mm;background:#00271b}
    <svg class="fl r" aria-hidden="true"><use href="#flower"/></svg>
   </div>
   <div class="btns"><button class="btn" type="button" onclick="window.print()">Print invitation</button></div>
-  <a class="cue" href="#families" aria-label="Scroll down to the invitation"><span>Scroll down</span><svg viewBox="0 0 24 36" aria-hidden="true"><path d="M4 6l8 8 8-8M4 18l8 8 8-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
  </div>
- </section>
+ <span class="scrollcue" aria-hidden="true"></span>
+</section>
 
 <!-- 2 · FAMILIES -->
 <section class="ivory fam" id="families">
@@ -304,6 +296,7 @@ html,body{margin:0;height:210mm;background:#00271b}
    <div class="reveal" style="--i:3"><b id="m">00</b><span>Minutes</span></div>
    <div class="reveal" style="--i:4"><b id="s">00</b><span>Seconds</span></div>
   </div>
+  <p class="note reveal" id="cdnote">Counting down to 21 November 2026, in your local time.</p>
  </div>
 </section>
 
@@ -339,9 +332,9 @@ html,body{margin:0;height:210mm;background:#00271b}
 
 <script>
 // falling petals + gold dust (CSS-animated, generated once)
-(()=>{const d=document.getElementById('dust'),cols=['rgba(199,150,152,.75)','rgba(222,199,159,.8)','rgba(98,140,106,.7)'];
+(()=>{const d=document.getElementById('dust'),cols=['oklch(.72 .06 15 /.75)','oklch(.84 .06 82 /.8)','oklch(.6 .07 150 /.7)'];
 for(let i=0;i<26;i++){const e=document.createElement('i'),dot=i%3===0;
- e.style.cssText=`left:${Math.random()*100}%;--s:${dot?3+Math.random()*3:8+Math.random()*10}px;--c:${dot?'#dec79f':cols[i%3]};--t:${12+Math.random()*14}s;--dl:${-Math.random()*20}s;--dx:${(Math.random()-.5)*160}px`;
+ e.style.cssText=`left:${Math.random()*100}%;--s:${dot?3+Math.random()*3:8+Math.random()*10}px;--c:${dot?'oklch(.84 .06 82)':cols[i%3]};--t:${12+Math.random()*14}s;--dl:${-Math.random()*20}s;--dx:${(Math.random()-.5)*160}px`;
  if(dot)e.className='dot';d.appendChild(e)}})();
 
 // scroll engine: works in every browser (Chrome, Safari, Firefox, WhatsApp/Instagram in-app)
@@ -358,7 +351,8 @@ for(let i=0;i<26;i++){const e=document.createElement('i'),dot=i%3===0;
 // countdown to 21 Nov 2026, 00:00 local time
 (()=>{const T=new Date(2026,10,21,0,0,0).getTime(),$=id=>document.getElementById(id),p=n=>String(n).padStart(2,'0');
 function tick(){let r=Math.max(0,T-Date.now());const s=Math.floor(r/1e3);
- $('d').textContent=p(Math.floor(s/86400));$('h').textContent=p(Math.floor(s%86400/3600));$('m').textContent=p(Math.floor(s%3600/60));$('s').textContent=p(s%60);}
+ $('d').textContent=p(Math.floor(s/86400));$('h').textContent=p(Math.floor(s%86400/3600));$('m').textContent=p(Math.floor(s%3600/60));$('s').textContent=p(s%60);
+ if(!r)$('cdnote').textContent='Alhamdulillah — the day is here.'}
 tick();setInterval(tick,1000)})();
 
 // background music: starts on the guest's first tap (browsers block true autoplay); button toggles it
